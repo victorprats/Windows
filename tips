@@ -1,5 +1,19 @@
-1. How to get Windows 10 license code
+1. Get Windows 10 license code
 https://www.thewindowsclub.com/find-windows-product-key
 
-Powershell (Admin)
+from (Powershell Admin)
 powershell "(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey"
+
+2. Windows 10 license expiration time
+(from cmd)
+slmgr.vbs -xpr
+
+3. MS Office license expiration time
+(from cmd)
+cd C:\Program Files\Microsoft Office\Office16
+cscript ospp.vbs /dstatus
+
+4. Windows10 version
+(from cmd)
+winver
+
