@@ -1,5 +1,5 @@
 1. Get Windows 10 license code
-source: https://www.thewindowsclub.com/find-windows-product-key
+*source: https://www.thewindowsclub.com/find-windows-product-key
 from (Powershell Admin)
 powershell "(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey"
 ---
