@@ -19,3 +19,6 @@ cscript ospp.vbs /dstatus
 (from cmd)
 winver
 
+5. Get Wifi passwords
+// netsh wlan show profile SSID_Name key=clear
+ex. netsh wlan show profile MOVISXYZ key=clear
