@@ -21,4 +21,7 @@ winver
 
 5. Get Wifi passwords
 // netsh wlan show profile SSID_Name key=clear
-ex. netsh wlan show profile MOVISXYZ key=clear
+netsh wlan show profile
+netsh wlan show profile MOVISXYZ key=clear
+---
+
