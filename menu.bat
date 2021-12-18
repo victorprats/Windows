@@ -10,21 +10,21 @@ echo  ....................................................
 echo.
 echo      0 - command prompt (EXIT)
 echo      1 - ipconfig /all
-echo      2 - ping (192.168.1.1), (www.google.com)
+echo      2 - ping (192.168.1.1), (www.google.com) and (pop.movistar.es)
 echo      3 - nslookup google.com
 echo      4 - execute all network tests
 echo     ----
 echo      5 - Windows 10 license
-echo      6 - MS Office license  
+echo      6 - Office 2013 license  
 echo      7 - System info 
 echo      8 - Windows version
 echo      9 - Task Scheduler
 echo     ---- 
 echo     10 - Show my external IP
-echo     11 - Check Wi-Fi signal strength
+echo     11 - Network speed
 echo.
 
-SET /P M=Type 1 to 0 then press ENTER: 
+SET /P M=Type 0 to 11 then press ENTER: 
 if %M%==1 goto IPCONFIG_ALL
 if %M%==2 goto PING
 if %M%==3 goto NSLOOKUP
@@ -35,7 +35,7 @@ if %M%==7 goto System_info
 if %M%==8 goto Windows10_version
 if %M%==9 goto Task_Scheduler
 if %M%==10 goto Show_my_external_ip
-if %M%==11 goto Check_Wi-Fi_signal
+if %M%==11 goto Network_speed
 if %M%==0 goto EOF
 
 :IPCONFIG_ALL
@@ -46,6 +46,7 @@ goto MENU
 :PING
 ping 192.168.1.1
 ping www.google.com
+ping pop.movistar.es
 pause
 goto MENU
 
@@ -102,12 +103,10 @@ nslookup myip.opendns.com. resolver1.opendns.com
 pause
 goto MENU
 
-:Check_Wi-Fi_signal
-netsh wlan show interfaces
+:Network_speed
+powershell -executionpolicy remotesigned -Command "get-netadapter | select name, linkspeed"
 pause
 goto MENU
 
 :EOF
 cmd /k
-
-
