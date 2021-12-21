@@ -5,7 +5,7 @@ color e
 cls
 echo.
 echo  ....................................................
-echo      PRESS 1-0 to select your task, or 0 to EXIT
+echo      PRESS 0-12 to select your task, or 0 to EXIT
 echo  ....................................................
 echo.
 echo      0 - command prompt (EXIT)
@@ -15,16 +15,17 @@ echo      3 - nslookup google.com
 echo      4 - execute all network tests
 echo     ----
 echo      5 - Windows 10 license
-echo      6 - Office 2013 license  
+echo      6 - MS Office license  
 echo      7 - System info 
 echo      8 - Windows version
 echo      9 - Task Scheduler
 echo     ---- 
 echo     10 - Show my external IP
-echo     11 - Network speed
+echo     11 - Check Wi-Fi signal strength
+echo     12 - Network speed
 echo.
 
-SET /P M=Type 0 to 11 then press ENTER: 
+SET /P M=Type 0 to 12 then press ENTER: 
 if %M%==1 goto IPCONFIG_ALL
 if %M%==2 goto PING
 if %M%==3 goto NSLOOKUP
@@ -35,7 +36,8 @@ if %M%==7 goto System_info
 if %M%==8 goto Windows10_version
 if %M%==9 goto Task_Scheduler
 if %M%==10 goto Show_my_external_ip
-if %M%==11 goto Network_speed
+if %M%==11 goto Check_Wi-Fi_signal
+if %M%==12 goto Network_speed
 if %M%==0 goto EOF
 
 :IPCONFIG_ALL
@@ -100,6 +102,11 @@ goto MENU
 
 :Show_my_external_ip
 nslookup myip.opendns.com. resolver1.opendns.com
+pause
+goto MENU
+
+:Check_Wi-Fi_signal
+netsh wlan show interfaces
 pause
 goto MENU
 
